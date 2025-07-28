@@ -4,9 +4,9 @@
 std::vector<std::string> transactionDesc;
 std::vector<double> transactionValue;
 
-int size = 0;
-int index = 0;
-double bal = 0;
+static int size = 0;
+static int index = 0;
+static double bal = 0;
 
 void addTransaction(std::string desc, double value)
 {
@@ -59,7 +59,7 @@ void showSum()
 	std::cout << "Current balance: $" << bal << std::endl;
 }
 
-double calcBal()
+static double calcBal()
 {
 	double money = 0;
 
@@ -71,7 +71,7 @@ double calcBal()
 	return money;
 }
 
-double calcIncome()
+static double calcIncome()
 {
 	double totalIncome = 0;
 
@@ -85,7 +85,7 @@ double calcIncome()
 	return totalIncome;
 }
 
-double calcExpenses()
+static double calcExpenses()
 {
 	double totalExpense = 0;
 

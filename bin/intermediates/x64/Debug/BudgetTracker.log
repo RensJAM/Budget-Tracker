@@ -1,3 +1,2 @@
-﻿  Calculations.cpp
-  LINK : C:\dev\BudgetTracker\bin\x64\Debug\BudgetTracker.exe not found or not built by the last incremental link; performing full link
+﻿  Main.cpp
   BudgetTracker.vcxproj -> C:\dev\BudgetTracker\bin\x64\Debug\BudgetTracker.exe

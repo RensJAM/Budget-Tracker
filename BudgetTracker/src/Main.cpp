@@ -6,10 +6,10 @@
 int main()
 {
 
-	int choice;
-	double expens;
-	std::string desc;
-	int sel;
+	static int choice;
+	static double expens;
+	static std::string desc;
+	static int sel;
 
 	while (true)
 	{
@@ -18,7 +18,12 @@ int main()
 			<< "3. Remove a transaction\n"
 			<< "4. Show summary statistics\n"
 			<< "5. Exit programm\n";
-	std::cin >> choice;
+	if (!(std::cin >> choice))
+	{
+		std::cin.clear();
+		std::cin.ignore();
+		std::cout << "Incorrect entry. Try again: \n";
+	}
 
 	switch(choice)
 	{
@@ -27,7 +32,12 @@ int main()
 		std::cout << "What is the description of your transaction?: ";
 		std::getline(std::cin, desc);
 		std::cout << "What is the value of your transaction?: ";
-		std::cin >> expens;
+		if (!(std::cin >> expens))
+		{
+			std::cin.clear();
+			std::cin.ignore();
+			std::cout << "Incorrect entry. Try again: \n";
+		}
 		addTransaction(desc, expens);
 		break;
 	}
@@ -38,7 +48,12 @@ int main()
 	case 3: {
 		showTransactions();
 		std::cout << "Enter number to remove: \n";
-		std::cin >> sel;
+		if (!(std::cin >> sel))
+		{
+			std::cin.clear();
+			std::cin.ignore();
+			std::cout << "Incorrect entry. Try again: \n";
+		}
 		removeTransaction(sel);
 		break;
 	}
