@@ -32,6 +32,10 @@ void showTransactions()
 
 void removeTransaction(int sel)
 {
+	if (sel < 1 || sel > transactionDesc.size()) {
+		std::cerr << "Invalid transaction number.\n";
+		return;
+	}
 	transactionDesc.erase(transactionDesc.begin() + (sel - 1));
 	transactionValue.erase(transactionValue.begin() + (sel - 1));
 	index = index - 1;
@@ -46,13 +50,13 @@ void showSum()
 {
 	
 	double totalIncome = calcIncome();
-	std::cout << "Total income: " << totalIncome << std::endl;
+	std::cout << "Total income: $" << totalIncome << std::endl;
 
 	double totalExpense = calcExpenses();
-	std::cout << "Total expenses: " << totalExpense << std::endl;
+	std::cout << "Total expenses: $" << -totalExpense << std::endl;
 
 	bal = calcBal();
-	std::cout << "Current balance: " << bal << std::endl;
+	std::cout << "Current balance: $" << bal << std::endl;
 }
 
 double calcBal()
