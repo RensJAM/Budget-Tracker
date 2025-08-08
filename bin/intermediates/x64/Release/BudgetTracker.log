@@ -1,8 +1,0 @@
-﻿  Calculations.cpp
-  Main.cpp
-  Generating code
-  110 of 335 functions (32.8%) were compiled, the rest were copied from previous compilation.
-    80 functions were new in current compilation
-    43 functions had inline decision re-evaluated but remain unchanged
-  Finished generating code
-  BudgetTracker.vcxproj -> C:\dev\BudgetTracker\bin\x64\Release\BudgetTracker.exe
