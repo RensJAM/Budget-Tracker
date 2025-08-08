@@ -113,7 +113,6 @@ static void updateFile()
 	{
 
 		MyFile << transactionValue[i] << " " << transactionDesc[i] << "\n";
-		std::cout << "Written to file.\n";
 
 	}
 	MyFile.close();
