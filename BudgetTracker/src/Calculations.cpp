@@ -1,5 +1,7 @@
 #include <iostream>
 #include <vector>
+#include <string>
+#include <fstream>
 
 std::vector<std::string> transactionDesc;
 std::vector<double> transactionValue;
@@ -7,6 +9,8 @@ std::vector<double> transactionValue;
 static int size = 0;
 static int index = 0;
 static double bal = 0;
+
+static void updateFile();
 
 void addTransaction(std::string desc, double value)
 {
@@ -16,6 +20,7 @@ void addTransaction(std::string desc, double value)
 	std::cout << transactionDesc[index] << " $" << transactionValue[index] << std::endl;
 	index++;
 	size++;
+	updateFile();
 
 }
 
@@ -39,6 +44,7 @@ void removeTransaction(int sel)
 	transactionDesc.erase(transactionDesc.begin() + (sel - 1));
 	transactionValue.erase(transactionValue.begin() + (sel - 1));
 	index = index - 1;
+	updateFile();
 
 }
 
@@ -97,4 +103,45 @@ static double calcExpenses()
 		}
 	}
 	return totalExpense;
+}
+
+static void updateFile()
+{
+	std::ofstream MyFile("transactions.txt");
+
+	for (int i = 0; i < index; i++)
+	{
+
+		MyFile << transactionValue[i] << " " << transactionDesc[i] << "\n";
+		std::cout << "Written to file.\n";
+
+	}
+	MyFile.close();
+}
+
+void loadTransactions()
+{
+	std::ifstream MyFile("transactions.txt");
+	if (!MyFile)
+	{
+		std::cerr << "Could not open transactions.txt for reading.\n";
+		return;
+	}
+
+	transactionValue.clear();
+	transactionDesc.clear();
+	index = 0;
+	size = 0;
+
+	double value;
+	std::string desc;
+
+	while (MyFile >> value >> desc) {
+		transactionValue.push_back(value);
+		transactionDesc.push_back(desc);
+		index++;
+		size++;
+	}
+
+	MyFile.close();
 }

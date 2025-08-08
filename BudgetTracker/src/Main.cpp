@@ -11,12 +11,14 @@ int main()
 	static std::string desc;
 	static int sel;
 
+	loadTransactions();
+
 	while (true)
 	{
 	std::cout << "1. Add a new transaction\n"
 			<< "2. View all transactions\n"
 			<< "3. Remove a transaction\n"
-			<< "4. Show summary statistics\n"
+			<< "4. Show transactions summary\n"
 			<< "5. Exit programm\n";
 	if (!(std::cin >> choice))
 	{
