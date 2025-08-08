@@ -136,7 +136,9 @@ void loadTransactions()
 	double value;
 	std::string desc;
 
-	while (MyFile >> value >> desc) {
+	while (MyFile >> value)
+	{
+		std::getline(MyFile >> std::ws, desc);
 		transactionValue.push_back(value);
 		transactionDesc.push_back(desc);
 		index++;
