@@ -8,8 +8,3 @@ Data is saved to a text file so it’s available next time you run it.
 - View totals and balance
 - Saves data to file
 - Lightweight and fast
-
-## Installation
-```bash
-g++ -o budget main.cpp
-./budget
